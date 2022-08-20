@@ -7,7 +7,7 @@ const userSchema=mongoose.Schema({
     },
     email: {
         type: String,
-        trim:true,
+        trim:true, // trim은 공백을 삭제해줌
         unique: 1
     },
     password: {
@@ -18,9 +18,9 @@ const userSchema=mongoose.Schema({
         type: String,
         maxlength: 50
     },
-    role: {
+    role: { // 관리자 혹은 일반유저 분류
         type: Number,
-        default:0
+        default:0 
     },
     image: String,
     token: {
@@ -31,6 +31,6 @@ const userSchema=mongoose.Schema({
     }
 })
 
-const User=mongoose.model('User', userSchema);
+const User=mongoose.model('User', userSchema); // 스키마를 모델로 감싸줌
 
-module.exports={User}
+module.exports={User} // 다른곳에서도 사용가능하도록함
